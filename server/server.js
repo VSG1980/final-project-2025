@@ -40,7 +40,8 @@ app.post("/generate-idea", async function (request, response) {
     prompt += `Target Audience: ${targetAudience.join(", ")}. `;
   }
 
-  prompt += "Provide a unique and viable startup idea. Be clear and concise.";
+  prompt +=
+    "Provide a unique and viable startup idea. Be clear and concise and limit the words to 200 words.";
 
   const completion = await openai.chat.completions.create({
     model: "gpt-4o-mini",
