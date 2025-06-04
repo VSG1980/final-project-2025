@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import OpenAI from "openai";
+import pg from "pg";
 
 const app = express();
 app.use(cors());
@@ -69,4 +70,30 @@ const PORT = 8080;
 
 app.listen(PORT, function () {
   console.log(`Server is runnnning port ${PORT}`);
+});
+
+const db = new pg.Pool({
+  connectionString: process.env.DB_CONN_STRING,
+});
+
+app.post("/save-idea", async function (request, response) {
+  console.log("POST route of /save-idea has been hit");
+  console.log("The request body is: ", request.body);
+
+  const formValues = request.body;
+
+  const dbResponse = await db.query(
+    `
+    INSERT INTO saved_ideas
+  (idea_text, created_at)
+  VALUES ($1, NOW())`,
+    [formValues.idea]
+  );
+});
+
+app.get("/saved-ideas", async function (request, response) {
+  const dbResponse = await db.query(
+    `SELECT idea_text, created_at FROM saved_ideas`
+  );
+  response.json(dbResponse.rows);
 });

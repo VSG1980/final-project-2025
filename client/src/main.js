@@ -1,7 +1,11 @@
 const responsesDiv = document.getElementById("responses");
 const promptForm = document.querySelector("form");
+const saveButton = document.getElementById("save-button");
+
+let latestIdea = "";
 
 promptForm.addEventListener("submit", sendIdeaRequest);
+saveButton.addEventListener("click", saveIdeaToDatabase);
 
 async function sendIdeaRequest(event) {
   event.preventDefault();
@@ -40,4 +44,42 @@ async function sendIdeaRequest(event) {
   const ideaPara = document.createElement("p");
   ideaPara.textContent = data;
   responsesDiv.appendChild(ideaPara);
+
+  latestIdea = data;
+  saveButton.disabled = false;
 }
+
+async function saveIdeaToDatabase() {
+  const response = await fetch("http://localhost:8080/save-idea", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ idea: latestIdea }),
+  });
+}
+
+async function loadSavedIdeas() {
+  const response = await fetch("http://localhost:8080/saved-ideas");
+  const ideas = await response.json();
+
+  const savedIdeasDiv = document.getElementById("saved-ideas");
+  savedIdeasDiv.innerHTML = "";
+
+  ideas.forEach((idea) => {
+    const ideaContainer = document.createElement("div");
+    ideaContainer.classList.add("saved-idea");
+
+    const ideaText = document.createElement("p");
+    ideaText.textContent = idea.idea_text;
+
+    const ideaDate = document.createElement("small");
+    const date = new Date(idea.created_at);
+    ideaDate.textContent = `Saved on: ${date.toLocaleString()}`;
+
+    ideaContainer.appendChild(ideaText);
+    ideaContainer.appendChild(ideaDate);
+    savedIdeasDiv.appendChild(ideaContainer);
+  });
+}
+loadSavedIdeas();

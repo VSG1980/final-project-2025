@@ -10,9 +10,11 @@
   <body>
     <header class="app-header">
       <div class="logo">StartUpSpark</div>
+
     </header> 
     <section aria-labelledby="form-heading">
       <h1 id="form-heading">StartUpSpark Idea Generator</h1> 
+
       <form id="startup-form" role="form" aria-describedby="form-description">
         <p id="form-description" class="sr-only">
           Fill in your preferences to generate a tailored startup idea.
@@ -20,6 +22,7 @@
         <div class="form-group">
           <label for="interest">Industry or Product Interest:</label>
           <input
+
           id="interest"
           name="interest"
           type="text"
@@ -103,6 +106,11 @@
   </section>
   
   <div id="responses" aria-live="polite"></div>
+
     <div id="responses"></div>
+    <button id="save-button" disabled>Save Idea</button>
+
+    <h2>Previously Saved Ideas</h2>
+    <div id="saved-ideas"></div>
   </body>
 </html>
