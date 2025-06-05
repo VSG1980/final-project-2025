@@ -50,8 +50,21 @@ async function sendIdeaRequest(event) {
   responsesDiv.innerHTML = "";
 
   const ideaPara = document.createElement("p");
+  ideaPara.id = "current-response-text";
   ideaPara.textContent = data;
+
+  const copyBtn = document.createElement("button");
+  copyBtn.id = "copy-current-response-btn";
+  copyBtn.textContent = "Copy to Clipboard";
+
+  copyBtn.addEventListener("click", () => {
+    navigator.clipboard.writeText(ideaPara.textContent).then(() => {
+      alert("Current response copied to clipboard!");
+    });
+  });
+
   responsesDiv.appendChild(ideaPara);
+  responsesDiv.appendChild(copyBtn);
 
   latestIdea = data;
   saveButton.disabled = false;
