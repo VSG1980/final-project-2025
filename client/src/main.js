@@ -1,6 +1,7 @@
 const responsesDiv = document.getElementById("responses");
 const promptForm = document.querySelector("form");
 const saveButton = document.getElementById("save-button");
+const loadingMessage = document.getElementById("loading-message");
 
 let latestIdea = "";
 
@@ -9,6 +10,11 @@ saveButton.addEventListener("click", saveIdeaToDatabase);
 
 async function sendIdeaRequest(event) {
   event.preventDefault();
+
+  loadingMessage.style.display = "block";
+  loadingMessage.textContent = "Loading idea...";
+  responsesDiv.innerHTML = "";
+  responsesDiv.appendChild(loadingMessage);
 
   const interest = event.target.interest.value;
   const timeline = event.target.timeline.value;
@@ -38,6 +44,8 @@ async function sendIdeaRequest(event) {
 
   const data = await response.json();
   console.log("server response is:", data);
+
+  loadingMessage.style.display = "none";
 
   responsesDiv.innerHTML = "";
 
