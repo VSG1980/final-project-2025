@@ -16,7 +16,7 @@
       />
     </header>
     <section aria-labelledby="form-heading">
-      <h1 id="form-heading">StartUpSpark Idea Generator</h1> 
+      <h1 id="form-heading">StartUpSpark Idea Generator</h1>
 
       <form id="startup-form" role="form" aria-describedby="form-description">
         <p id="form-description" class="sr-only">
@@ -25,95 +25,121 @@
         <div class="form-group">
           <label for="interest">Industry or Product Interest:</label>
           <input
-
-          id="interest"
-          name="interest"
-          type="text"
-          placeholder="e.g., AI, fitness, education"
-          aria-required="false"
-        />
-      </div>
-
-      <div class="form-group">
-        <label for="timeline">Timeline:</label>
-        <select id="timeline" name="timeline" aria-required="false">
-          <option value="">Any</option>
-          <option value="1 month">1 Month</option>
-          <option value="3 months">3 Months</option>
-          <option value="6 months">6 Months</option>
-          <option value="1 year">1 Year</option>
-          <option value="1 year+">1 Year+</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="budget">Budget:</label>
-        <select id="budget" name="budget" aria-required="false">
-          <option value="">Any</option>
-          <option value="under £1,000">Under £1,000</option>
-          <option value="£1,000 - £10,000">£1,000 - £10,000</option>
-          <option value="£10,000 - £100,000">£10,000 - £100,000</option>
-          <option value="£100,000+">£100,000+</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="skillLevel">Skill Level:</label>
-        <select id="skillLevel" name="skillLevel" aria-required="false">
-          <option value="">Any</option>
-          <option value="Beginner">Beginner</option>
-          <option value="Intermediate">Intermediate</option>
-          <option value="Expert">Expert</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="businessModel">Preferred Business Model:</label>
-        <select id="businessModel" name="businessModel" aria-required="false">
-          <option value="">Any</option>
-          <option value="Subscription">Subscription</option>
-          <option value="Freemium">Freemium</option>
-          <option value="One-Time Payment">One-Time Payment</option>
-          <option value="Service-based">Service-based</option>
-        </select>
-      </div>
-
-      <fieldset aria-labelledby="audience-legend">
-        <legend id="audience-legend">Target Audience:</legend>
-        <div role="group" aria-labelledby="audience-legend">
-          <label for="audience-students">
-            <input type="checkbox" id="audience-students" name="audience" value="Students" />
-            Students
-          </label>
-          <label for="audience-parents">
-            <input type="checkbox" id="audience-parents" name="audience" value="Parents" />
-            Parents
-          </label>
-          <label for="audience-smallbiz">
-            <input type="checkbox" id="audience-smallbiz" name="audience" value="Small Businesses" />
-            Small Businesses
-          </label>
-          <label for="audience-remote">
-            <input type="checkbox" id="audience-remote" name="audience" value="Remote Workers" />
-            Remote Workers
-          </label>
-          <label for="audience-gamers">
-            <input type="checkbox" id="audience-gamers" name="audience" value="Gamers" />
-            Gamers
-          </label>
+            id="interest"
+            name="interest"
+            type="text"
+            placeholder="e.g., AI, fitness, education"
+            aria-required="false"
+          />
         </div>
-      </fieldset>
-  
-      <button type="submit">Generate Startup Idea</button>
-    </form>
-  </section>
-  
-  <div id="responses" aria-live="polite"></div>
 
-    <div id="responses"></div>
+        <div class="form-group">
+          <label for="timeline">Timeline:</label>
+          <select id="timeline" name="timeline" aria-required="false">
+            <option value="">Any</option>
+            <option value="1 month">1 Month</option>
+            <option value="3 months">3 Months</option>
+            <option value="6 months">6 Months</option>
+            <option value="1 year">1 Year</option>
+            <option value="1 year+">1 Year+</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="budget">Budget:</label>
+          <select id="budget" name="budget" aria-required="false">
+            <option value="">Any</option>
+            <option value="under £1,000">Under £1,000</option>
+            <option value="£1,000 - £10,000">£1,000 - £10,000</option>
+            <option value="£10,000 - £100,000">£10,000 - £100,000</option>
+            <option value="£100,000+">£100,000+</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="skillLevel">Skill Level:</label>
+          <select id="skillLevel" name="skillLevel" aria-required="false">
+            <option value="">Any</option>
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Expert">Expert</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="businessModel">Preferred Business Model:</label>
+          <select id="businessModel" name="businessModel" aria-required="false">
+            <option value="">Any</option>
+            <option value="Subscription">Subscription</option>
+            <option value="Freemium">Freemium</option>
+            <option value="One-Time Payment">One-Time Payment</option>
+            <option value="Service-based">Service-based</option>
+          </select>
+        </div>
+
+        <fieldset aria-labelledby="audience-legend">
+          <legend id="audience-legend">Target Audience:</legend>
+          <div role="group" aria-labelledby="audience-legend">
+            <label for="audience-students">
+              <input
+                type="checkbox"
+                id="audience-students"
+                name="audience"
+                value="Students"
+              />
+              Students
+            </label>
+            <label for="audience-parents">
+              <input
+                type="checkbox"
+                id="audience-parents"
+                name="audience"
+                value="Parents"
+              />
+              Parents
+            </label>
+            <label for="audience-smallbiz">
+              <input
+                type="checkbox"
+                id="audience-smallbiz"
+                name="audience"
+                value="Small Businesses"
+              />
+              Small Businesses
+            </label>
+            <label for="audience-remote">
+              <input
+                type="checkbox"
+                id="audience-remote"
+                name="audience"
+                value="Remote Workers"
+              />
+              Remote Workers
+            </label>
+            <label for="audience-gamers">
+              <input
+                type="checkbox"
+                id="audience-gamers"
+                name="audience"
+                value="Gamers"
+              />
+              Gamers
+            </label>
+          </div>
+        </fieldset>
+
+        <button type="submit">Generate Startup Idea</button>
+      </form>
+    </section>
+
+    <div id="responses" aria-live="polite"></div>
+
+    <div id="responses">
+      <p id="loading-message" style="display: none">Loading idea...</p>
+    </div>
     <button id="save-button" disabled>Save Idea</button>
 
     <h2>Previously Saved Ideas</h2>
-    <div id="saved-ideas"></div>
+    <section id="saved-ideas"></section>
   </body>
 </html>
