@@ -27,20 +27,23 @@ async function sendIdeaRequest(event) {
   );
   const targetAudience = Array.from(audienceBoxes).map((box) => box.value);
 
-  const response = await fetch("http://localhost:8080/generate-idea", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      interest,
-      timeline,
-      budget,
-      skillLevel,
-      businessModel,
-      targetAudience,
-    }),
-  });
+  const response = await fetch(
+    "https://final-project-2025-server.onrender.com//generate-idea",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        interest,
+        timeline,
+        budget,
+        skillLevel,
+        businessModel,
+        targetAudience,
+      }),
+    }
+  );
 
   const data = await response.json();
   console.log("server response is:", data);
@@ -71,17 +74,22 @@ async function sendIdeaRequest(event) {
 }
 
 async function saveIdeaToDatabase() {
-  const response = await fetch("http://localhost:8080/save-idea", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ idea: latestIdea }),
-  });
+  const response = await fetch(
+    "https://final-project-2025-server.onrender.com/save-idea",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ idea: latestIdea }),
+    }
+  );
 }
 
 async function loadSavedIdeas() {
-  const response = await fetch("http://localhost:8080/saved-ideas");
+  const response = await fetch(
+    "https://final-project-2025-server.onrender.com/saved-ideas"
+  );
   const ideas = await response.json();
 
   const savedIdeasDiv = document.getElementById("saved-ideas");
