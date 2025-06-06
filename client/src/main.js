@@ -28,7 +28,7 @@ async function sendIdeaRequest(event) {
   const targetAudience = Array.from(audienceBoxes).map((box) => box.value);
 
   const response = await fetch(
-    "https://final-project-2025-server.onrender.com//generate-idea",
+    "https://final-project-2025-server.onrender.com/generate-idea",
     {
       method: "POST",
       headers: {
